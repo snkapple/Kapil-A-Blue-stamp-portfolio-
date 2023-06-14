@@ -37,7 +37,11 @@ For your first milestone, describe what your project is and how you plan to buil
 - Technical progress you've made so far
 - Challenges you're facing and solving in your future milestones
 - What your plan is to complete your project
-
+# Starter Project
+My starter project was the custom arduino project. 
+I made an arduino that when you are at least ten centimeters from the ultra sonic sensor you would turn on an LED. 
+I used an arduino, an adafruit protoshield, an led, a resistor, various wires, and an ultrasonic sensor. 
+A challenge I faced was getting the ciruit right and issues with shorting. 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
