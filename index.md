@@ -33,15 +33,10 @@ For your second milestone, explain what you've worked on since your previous mil
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # First Milestone
-For your first milestone, describe what your project is and how you plan to build it. You can include:
-- An explanation about the different components of your project and how they will all integrate together
-- Technical progress you've made so far
-- Challenges you're facing and solving in your future milestones
-- What your plan is to complete your project
 I am building a mini tank robot. Right now I have just built it so there is no code or anything to run it.
-- Building the tank involved a few things I first had to assemble the wheel and the drive of it. For that, there was a prebuilt structure to that I could mount a DC motor to which I attached a wheel, I would also have another wheel on the same piece which would be connected so they can turn each other. There are two of those drives and I would mount a panel on top of those which contains the electronics such as the Arduino microcontroller and the attachments like the motor controller and the sensor shield.
-- I have been able to test various different parts of the electronics and get them working successfully such as the ultrasonic sensor, the photoresistors, the servo, and the Bluetooth module. One challenge I faced was with the software particularly when it came to the IR sensor which I wasn't able to get working properly because the library wasn't working.
-- After this I plan to get the IR sensor working and get remote-controlled driving capabilities with either the Bluetooth or IR sensor and use those inputs to power the motors.  
+- Building the tank involved a few things I first had to assemble the wheel and the drive of it. For that, there was a prebuilt structure to which I could mount a DC motor to which I attached a wheel, I would also have another wheel on the same piece which would be connected so they can turn each other. There are two of those drives and I would mount a panel on top of those which contains the electronics such as the Arduino microcontroller and the attachments like the motor controller and the sensor shield.
+- I have been able to test various different parts of the electronics and get them working successfully such as the ultrasonic sensor, the photoresistors, the servo, and the Bluetooth module. These sensors can be used for different things if I want my robot to react to its environment, for example, if I want the robot to not hit an object I would use the Ultrasonic sensor, and if I wanted it to react to its light level I would use the photoresistor.   One challenge I faced was with the software particularly when it came to the IR sensor which I wasn't able to get working properly because the library wasn't working.
+- After this, I plan to get the IR sensor working and get remote-controlled driving capabilities with either the Bluetooth or IR sensor and use those inputs to power the motors.  
 # Starter Project
 My starter project was the custom Arduino project.
 - I made an Arduino that when you are at least ten centimeters from the ultrasonic sensor you would turn on an LED.
