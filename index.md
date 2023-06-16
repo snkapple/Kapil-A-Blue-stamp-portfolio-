@@ -6,7 +6,7 @@ I decided to build a mini-tank robot. It can use treads to move, and it also has
 |:--:|:--:|:--:|:--:|
 | Kapil A       | Menlo Atherton High school | Electrical Engineering | Incoming Sophomore 
 
-**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
+
 
 <img src="Kapil-Headshot.png" width="400" height="500">
   
