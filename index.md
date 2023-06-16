@@ -8,7 +8,7 @@ I decided to build a mini-tank robot. It can use treads to move, and it also has
 
 **Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
-![Headstone Image](logo.svg)
+<img src="Kapil-Headshot.png" width="400" height="500">
   
 # Final Milestone
 For your final milestone, explain the outcome of your project. Key details to include are:
@@ -39,12 +39,12 @@ For your first milestone, describe what your project is and how you plan to buil
 - Challenges you're facing and solving in your future milestones
 - What your plan is to complete your project
 # Starter Project
-My starter project was the custom arduino project.
-- I made an arduino that when you are at least ten centimeters from the ultra sonic sensor you would turn on an LED.
-- I used an arduino, an adafruit protoshield, an led, a resistor, various wires, and an ultrasonic sensor. 
-- A challenge I faced was getting the ciruit right and issues with shorting. 
+My starter project was the custom Arduino project.
+- I made an Arduino that when you are at least ten centimeters from the ultrasonic sensor you would turn on an LED.
+- I used an Arduino for programming and controlling the sensor, an adafruit proto shield to solder onto and to contain my circuit, an led to provide an output, a resistor to make sure my led wouldn't burn out from too much power, various wires, and an ultrasonic sensor to provide an input. 
+- A challenge I faced was getting the circuit right and issues with shorting.
+  I first designed the circuit on a breadboard which taught me a lot about how circuits work and Power Rails, but when soldering it the circuit kept shorting. I realized that the board to which I was soldering the components had power rails that were already powered by a 5-volt connection so when I connected them to ground it would short. What I had to do was remake the circuit on a different part of the board which wouldn't already have a five-volt connection. For that, I had to make my own connections between the components because they didn't have power rails. 
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oUL4bk-k7ME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
