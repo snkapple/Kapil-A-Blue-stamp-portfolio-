@@ -38,6 +38,10 @@ For your first milestone, describe what your project is and how you plan to buil
 - Technical progress you've made so far
 - Challenges you're facing and solving in your future milestones
 - What your plan is to complete your project
+I am building a mini tank robot. Right now I have just built it so there is no code or anything to run it.
+- Building the tank involved a few things I first had to assemble the wheel and the drive of it. For that, there was a prebuilt structure to that I could mount a DC motor to which I attached a wheel, I would also have another wheel on the same piece which would be connected so they can turn each other. There are two of those drives and I would mount a panel on top of those which contains the electronics such as the Arduino microcontroller and the attachments like the motor controller and the sensor shield.
+- I have been able to test various different parts of the electronics and get them working successfully such as the ultrasonic sensor, the photoresistors, the servo, and the Bluetooth module. One challenge I faced was with the software particularly when it came to the IR sensor which I wasn't able to get working properly because the library wasn't working.
+- After this I plan to get the IR sensor working and get remote-controlled driving capabilities with either the Bluetooth or IR sensor and use those inputs to power the motors.  
 # Starter Project
 My starter project was the custom Arduino project.
 - I made an Arduino that when you are at least ten centimeters from the ultrasonic sensor you would turn on an LED.
