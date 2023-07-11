@@ -28,7 +28,7 @@ I didn't use any new components I just programmed the motors to control their sp
 ### Progress 
 for my customization, I was able to add functionality with an ultrasonic sensor where it would follow an object. 
 ### Challenges faced 
-One challenge I faced was with coding it I didn't really understand the way that the Bluetooth inputs were read so I didn't know how to make it so my robot was controlled. I then figured out I have to save my inputs as a variable then I used those to if I had a certain input it would drive a certain way whether it turned or went forwards or backward. 
+One challenge I faced was with coding it I didn't really understand the way that the Bluetooth inputs were read so I didn't know how to make it so my robot was controlled. I then figured out I have to save my inputs as a variable then I used those to if I had a certain input it would drive a certain way whether it turned or went forwards or backward. Another challenge with driving it was one of the wheels wouldn't be powered, the reason for this is I was connected to one 9 volt battery which was running low on battery and two wasn't giving enough power so I soldered two of the 9-volt battery clips together so I could use two 9 volt batteries. 
 ### Next steps 
 Next, I plan to add extra functionality with different sensors such as the photoresistors to react to the light levels and work with other sensors. 
 
