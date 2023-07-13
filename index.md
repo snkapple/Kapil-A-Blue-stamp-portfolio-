@@ -155,7 +155,135 @@ switch (ble_val)
 
 }
 ```
+obstacle avoidance code.
+```c++
+#include <Servo.h>
+
+/*
+ keyestudio Mini Tank Robot v2.0
+ lesson 8.1
+ motor driver
+ http://www.keyestudio.com
+*/ 
+Servo myservo;  // create servo object to control a servo
+// twelve servo objects can be created on most boards
+int pos = 0;    // variable to store the servo position
+
+  
+#define ML_Ctrl 13  //define the direction control pin of left motor
+#define ML_PWM 11   //define the PWM control pin of left motor
+#define MR_Ctrl 12  //define direction control pin of right motor
+#define MR_PWM 3   // define the PWM control pin of right motor
+int trigPin = 5;    // Trigger
+int echoPin = 4;    // Echo
+long duration, cm, in;
+void forward(){
+  digitalWrite(ML_Ctrl,LOW);//set the direction control pin of left motor to LOW
+  analogWrite(ML_PWM,150);//set the PWM control speed of left motor to 200
+  digitalWrite(MR_Ctrl,LOW);//set the direction control pin of right motor to LOW
+  analogWrite(MR_PWM,150);//set the PWM control speed of right motor to 200
+}
+void back(){
+  digitalWrite(ML_Ctrl,HIGH);
+  analogWrite(ML_PWM,150);
+  digitalWrite(MR_Ctrl,HIGH);
+  analogWrite(MR_PWM,150);
+}
+void right (){
+  digitalWrite(ML_Ctrl, LOW);
+  analogWrite(ML_PWM,200);
+  digitalWrite(MR_Ctrl,HIGH);
+  analogWrite(MR_PWM,200);
+}
+void left(){
+  digitalWrite(ML_Ctrl,HIGH);
+  analogWrite(ML_PWM,200);
+  digitalWrite(MR_Ctrl, LOW);
+  analogWrite(MR_PWM,200);
+}
+void stop(){
+  analogWrite(ML_PWM,0);//set the PWM control speed of left motor to 0
+  analogWrite(MR_PWM,0);//set the PWM control speed of right motor to 0
+}
+void setup(){
+  Serial.begin(9600);
+  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(ML_Ctrl, OUTPUT);//define direction control pin of left motor as output
+  pinMode(ML_PWM, OUTPUT);//define PWM control pin of left motor as output
+  pinMode(MR_Ctrl, OUTPUT);//define direction control pin of right motor as output.
+  pinMode(MR_PWM, OUTPUT);//define the PWM control pin of right motor as output
+  pos=90;
+  myservo.write(pos); 
+}
+
+void loop(){
+    // The sensor is triggered by a HIGH pulse of 10 or more microseconds.
+  // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+   // Read the signal from the sensor: a HIGH pulse whose
+  // duration is the time (in microseconds) from the sending
+  // of the ping to the reception of its echo off of an object.
+  duration = pulseIn(echoPin, HIGH);
+   // Convert the time into a distance
+  cm = (duration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
+  in = (duration/2) / 74;   // Divide by 74 or multiply by 0.0135
+  Serial.print(in);
+  Serial.print("in, ");
+  Serial.print(cm);
+  Serial.print("cm");
+  Serial.println();
+  delay(250);
+
+    if (in>5&&pos==180){
+    back();
+    delay(300);
+    left();
+    delay(575);
+    pos=90;
+    myservo.write(pos); 
+  }else if (in>5&&pos==0){
+    back();
+    delay(300);
+    right();
+    delay(575);
+    pos=90;
+    myservo.write(pos); 
+  }
+  else if (in<=5 &&pos==0){
+    pos=180;
+    myservo.write(pos);
+    delay(500);
+  }
+
+  if (in>5 &&pos==90){ //goes forward if there is a path. 
+    forward(); 
+    //myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(50); 
+  }else if(pos==90)//stop if its too close to an objects 
+  {
+    stop();
+    pos=0; 
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(500);
+  }else{
+    back();
+    delay(800);
+    right();
+    delay(850);
+    pos=90;
+    myservo.write(pos);
+  }
+    
+}
 <!--
+
+```
 # Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
 Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
