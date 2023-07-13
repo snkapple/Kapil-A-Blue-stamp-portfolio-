@@ -281,9 +281,26 @@ void loop(){
   }
     
 }
-<!--
+
 
 ```
+# Schematics 
+#### Obstacle Avoidance Schematic
+
+
+<img src="avoid diagram.png" width="600" height="400">
+
+
+-via keyestudio
+
+#### Bluetooth-Controlled Robot Schematic
+
+
+<img src="bluetooth diagram.png" width="600" height="400">
+
+
+-via keyestudio
+
 # Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
 Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
