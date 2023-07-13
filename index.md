@@ -88,20 +88,73 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 
 # Code
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
-
+-->
+# Code
+the code for the Bluetooth controlled bot 
 ```c++
-void setup() {
-  // put your setup code here, to run once:
+
+#define ML_Ctrl 13  //define the direction control pin of left motor
+#define ML_PWM 11   //define the PWM control pin of left motor
+#define MR_Ctrl 12  //define direction control pin of right motor
+#define MR_PWM 3   // define the PWM control pin of right motor
+char ble_val; //character variable: save the value of Bluetooth reception
+void setup()
+  
+{
   Serial.begin(9600);
-  Serial.println("Hello World!");
+  myservo.attach(9); 
+  pinMode(ML_Ctrl, OUTPUT);//define direction control pin of left motor as output
+  pinMode(ML_PWM, OUTPUT);//define PWM control pin of left motor as output
+  pinMode(MR_Ctrl, OUTPUT);//define direction control pin of right motor as output.
+  pinMode(MR_PWM, OUTPUT);//define the PWM control pin of right motor as output
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop(){
+  if (Serial.available())
+  {
+    ble_val = Serial.read();
+    Serial.println(ble_val);
+  }
+switch (ble_val)
+  { 
+    case 'f':
+      digitalWrite(ML_Ctrl,LOW);
+      analogWrite(ML_PWM,100);
+      digitalWrite(MR_Ctrl,LOW);
+      analogWrite(MR_PWM,100);
+      break; 
+  //front
+    case 'b':
+      digitalWrite(ML_Ctrl,HIGH);
+      analogWrite(ML_PWM,100);
+      digitalWrite(MR_Ctrl,HIGH);
+      analogWrite(MR_PWM,100);
+      break; 
+   //back
+    case 'l':
+      digitalWrite(ML_Ctrl,HIGH);
+      analogWrite(ML_PWM,200);
+      digitalWrite(MR_Ctrl,LOW);
+      analogWrite(MR_PWM,200);
+      break;
+    //left
+    case 'r':
+      digitalWrite(ML_Ctrl,LOW );
+      analogWrite(ML_PWM,200);
+      digitalWrite(MR_Ctrl,HIGH);
+      analogWrite(MR_PWM,200);
+      break;
+   //right
+    case 's':
+      analogWrite(ML_PWM,0);
+      analogWrite(MR_PWM,0);
+      break;
+    //stop
+  }
 
 }
 ```
-
+<!--
 # Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
 Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
