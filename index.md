@@ -11,21 +11,20 @@ I decided to build a mini-tank robot. It can use treads to move, and it also has
 <img src="Kapil-Headshot.png" width="400" height="500">
   
 
-# Final Milestone>
+# Final Milestone
 ### Summary 
-For this milestone, I made it so the tank would be able to avoid objects. It works by the ultrasonic sensor being able to read the distance between itself and whatever is in front of it. If the ultrasonic sensor was 5 inches or closer to an object it would check if the left was clear if so it would turn to the left and go that direction if the left was not clear then it would check the right, if the right was not clear it would backup and turn around and go the opposite direction. 
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
- - What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
+For this milestone, I made it so the tank would be able to avoid objects. It works by the ultrasonic sensor being able to read the distance between itself and whatever is in front of it. If the ultrasonic sensor was 5 inches or closer to an object it would check if the left was clear if so it would turn to the left and go that direction if the left was not clear then it would check the right, if the right was not clear it would backup and turn around and go the opposite direction. Since my previous milestone I added functionality to the servo and I also added functionality to the ultrasonic sensor. 
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+### Challenges Faced
+The biggest challenges were when programming. At first I had the the code executing when it would turn away from the obstacle after the the code where it stopped it and the code calculating the distance of the object. because of that it would run both pieces of codes all the time instead of just running them at the the right time because the distance was not updated when going through the loop. The solution was placing that piece of code above the code that stopped the tank, by doing this it would run through the code multiples times for each step and update the value making the code run. 
+Overall my biggest challenges at BSE have been with my starter when it kept shorting because the ground was connected to the five-volt connection. Another one was with the programming of the obstacle avoidance. 
+The biggest triumphs where when I worked out the issue with it first turning right then left and when I made a bluetooth drive for the tank. 
+### What I learned 
+in bluestamp I learned the basics of electronics like how to make a circuit on a breadboard. I also learned how to use sensors with an ardiuno, and the basic syntax of C++ and how to use things like cases. In the future I want to deeper into electronics and learn more about circuits and how to make custom parts. I also want to learn more about mechanical engineering specifically how to use CAD to design mechanical systems and be able to make them.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>>
--->
 # Second Milestone
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aJizkXOvEMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ### Summary 
 for my second milestone, I wrote code so that I was able to run the robot using Bluetooth. With that code with different inputs, I would match the input and if it was the correct input I would either make the robot go forward backward or turn left or right.  
 I didn't use any new components I just programmed the motors to control their speed in direction. because they are dc motors they have two directions, so when programming them if I want it to turn right I have one motor turning normally while the other turns right. 
