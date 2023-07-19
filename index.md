@@ -8,7 +8,7 @@ I decided to build a mini-tank robot. It can use treads to move, and it also has
 
 
 
-<img src="Kapil-Headshot.png" width="400" height="500">
+<img src="Kapil-Project.png" width="400" height="500">
   
 
 # Final Milestone
