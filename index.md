@@ -286,6 +286,331 @@ void loop(){
 
 
 ```
+Integrated bluetooth code 
+```C++
+#include <Servo.h>
+
+/*
+ keyestudio Mini Tank Robot v2.0
+ lesson 8.1
+ motor driver
+ http://www.keyestudio.com
+*/ 
+#define L_Pin A1   //define the pin of left photo resistor
+#define R_Pin A2 
+Servo myservo;  // create servo object to control a servo
+// twelve servo objects can be created on most boards
+int pos = 0;    // variable to store the servo position
+
+int left_light; 
+int right_light;
+#define ML_Ctrl 13  //define the direction control pin of left motor
+#define ML_PWM 11   //define the PWM control pin of left motor
+#define MR_Ctrl 12  //define direction control pin of right motor
+#define MR_PWM 3   // define the PWM control pin of right motor
+unsigned char dark [] = {0xfe, 0x86, 0xdc, 0x20, 0x80, 0x70, 0x5e, 0x5e, 0xf0, 0x80, 0xf8, 0x10, 0x08, 0xff, 0x1e, 0xe3
+};
+unsigned char light [] ={0x00, 0x00, 0x09, 0x4a, 0x20, 0x0e, 0xf3, 0xc1, 0xf3, 0x0e, 0x00, 0x2a, 0x49, 0x00, 0x00, 0x00};
+unsigned char sad[]={0x80, 0x4f, 0x29, 0x0b, 0x8b, 0xc9, 0xdf, 0xc0, 0xc0, 0xdf, 0xc9, 0x8b, 0x0b, 0x29, 0x4f, 0x80};
+
+
+
+
+unsigned char happy[]={0x02, 0x1f, 0x13, 0x5f, 0xdf, 0x93, 0x9f, 0x82, 0x82, 0x9f, 0x93, 0x9f, 0x5f, 0x53, 0x1f, 0x02};
+int trigPin = 5;    // Trigger
+int echoPin = 4;    // Echo
+long duration, cm, in;
+void light_tra
+cking(){
+    if (left_light > 650 && right_light > 650) //the value detected photo resistor，go front
+  {  
+    forward();
+    delay(250);
+  } 
+  else if (left_light > 650 && right_light <= 650)  //the value detected photo resistor，turn left
+  {
+    left();
+    delay(250);
+  } 
+  else if (left_light <= 650 && right_light > 650) //the value detected photo resistor，turn right
+  {
+    right();
+    delay(250);
+  } 
+  else  //other situations, stop
+  {
+    stop();
+    delay(250);
+  }
+}
+void forward(){
+  digitalWrite(ML_Ctrl,LOW);//set the direction control pin of left motor to LOW
+  analogWrite(ML_PWM,150);//set the PWM control speed of left motor to 200
+  digitalWrite(MR_Ctrl,LOW);//set the direction control pin of right motor to LOW
+  analogWrite(MR_PWM,150);//set the PWM control speed of right motor to 200
+}
+void back(){
+  digitalWrite(ML_Ctrl,HIGH);
+  analogWrite(ML_PWM,150);
+  digitalWrite(MR_Ctrl,HIGH);
+  analogWrite(MR_PWM,150);
+}
+void right (){
+  digitalWrite(ML_Ctrl, LOW);
+  analogWrite(ML_PWM,200);
+  digitalWrite(MR_Ctrl,HIGH);
+  analogWrite(MR_PWM,200);
+}
+void left(){
+  digitalWrite(ML_Ctrl,HIGH);
+  analogWrite(ML_PWM,200);
+  digitalWrite(MR_Ctrl, LOW);
+  analogWrite(MR_PWM,200);
+}
+
+void stop(){
+  analogWrite(ML_PWM,0);//set the PWM control speed of left motor to 0
+  analogWrite(MR_PWM,0);//set the PWM control speed of right motor to 0
+}
+void auton(){
+
+  Serial.println(in);
+   if (in>5&&pos==180){
+    back();
+    delay(300);
+    left();
+    delay(660);
+    pos=90;
+    myservo.write(pos); 
+    
+  }
+  
+  if (in>5&&pos==0){
+    back();
+    delay(300);
+    right();
+    delay(650);
+    pos=90;
+    myservo.write(pos); 
+     
+  }
+  else if (in<=5 &&pos==0){
+    pos=180;
+    myservo.write(pos);
+    delay(500);
+  }
+
+  if (in>5 &&pos==90){ //goes forward if there is a path. 
+    forward(); 
+    //myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(50); 
+  }else if(pos==90)//stop if its too close to an objects 
+  {
+    stop();
+    pos=0; 
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(500);
+    
+   
+  }else{
+    back();
+    delay(800);
+    right();
+    delay(1000);
+    pos=90;
+    myservo.write(pos);
+    
+    
+  }
+
+}
+void follow(){
+  if (cm >= 20 && cm <= 60) //range to go front
+{
+  forward();
+}
+else if (cm> 10 && cm < 20)  //range to stop
+{
+  stop();
+}
+else if (cm <= 10)  //range to go back
+{
+  back();
+}
+else  //other situations, stop
+{
+  stop();
+}
+}
+char ble_val;
+#define SCL_Pin  A5  //Set clock pin to A5
+#define SDA_Pin  A4  //Set data pin to A4
+
+void matrix_display(unsigned char matrix_value[])
+{
+  IIC_start();  // use the function of the data transmission start condition
+  IIC_send(0xc0);  //select address
+  
+  for(int i = 0;i < 16;i++) //pattern data has 16 bits
+  {
+     IIC_send(matrix_value[i]); //convey the pattern data
+  }
+
+  IIC_end();   //end the transmission of pattern data  
+  IIC_start();
+  IIC_send(0x8A);  //display control, set pulse width to 4/16 s
+  IIC_end();
+}
+
+//the condition to start conveying data
+void IIC_start()
+{
+  digitalWrite(SCL_Pin,HIGH);
+  delayMicroseconds(3);
+  digitalWrite(SDA_Pin,HIGH);
+  delayMicroseconds(3);
+  digitalWrite(SDA_Pin,LOW);
+  delayMicroseconds(3);
+}
+//Convey data
+void IIC_send(unsigned char send_data)
+{
+  for(char i = 0;i < 8;i++)  //Each byte has 8 bits 8bit for every character
+  {
+      digitalWrite(SCL_Pin,LOW);  // pull down clock pin SCL_Pin to change the signal of SDA
+      delayMicroseconds(3);
+      if(send_data & 0x01)  //set high and low level of SDA_Pin according to 1 or 0 of every bit
+      {
+        digitalWrite(SDA_Pin,HIGH);
+      }
+      else
+      {
+        digitalWrite(SDA_Pin,LOW);
+      }
+      delayMicroseconds(3);
+      digitalWrite(SCL_Pin,HIGH); //pull up the clock pin SCL_Pin to stop transmission
+      delayMicroseconds(3);
+      send_data = send_data >> 1;  // detect bit by bit, shift the data to the right by one
+  }
+}
+
+//The sign of ending data transmission
+void IIC_end()
+{
+  digitalWrite(SCL_Pin,LOW);
+  delayMicroseconds(3);
+  digitalWrite(SDA_Pin,LOW);
+  delayMicroseconds(3);
+  digitalWrite(SCL_Pin,HIGH);
+  delayMicroseconds(3);
+  digitalWrite(SDA_Pin,HIGH);
+  delayMicroseconds(3);
+}
+//******************************************************
+
+void setup(){
+  Serial.begin(9600);
+  pinMode(L_Pin, INPUT);
+  pinMode(R_Pin, INPUT);
+  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(ML_Ctrl, OUTPUT);//define direction control pin of left motor as output
+  pinMode(ML_PWM, OUTPUT);//define PWM control pin of left motor as output
+  pinMode(MR_Ctrl, OUTPUT);//define direction control pin of right motor as output.
+  pinMode(MR_PWM, OUTPUT);//define the PWM control pin of right motor as output
+  pos=90;
+  myservo.write(pos); 
+  pinMode(SCL_Pin,OUTPUT);
+  pinMode(SDA_Pin,OUTPUT);
+  matrix_display(happy);
+}
+
+void loop(){
+  if (Serial.available())
+  {
+    ble_val = Serial.read();
+    Serial.println(ble_val);
+  }
+  left_light = analogRead(L_Pin);
+  right_light = analogRead(R_Pin);
+  
+    // The sensor is triggered by a HIGH pulse of 10 or more microseconds.
+  // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
+  
+  
+  Serial.print("left_light_value = ");
+  Serial.println(left_light);
+  Serial.print("right_light_value = ");
+  Serial.println(right_light);
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+   // Read the signal from the sensor: a HIGH pulse whose
+  // duration is the time (in microseconds) from the sending
+  // of the ping to the reception of its echo off of an object.
+  duration = pulseIn(echoPin, HIGH);
+   // Convert the time into a distance
+  cm = (duration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
+  in = (duration/2) / 74;   // Divide by 74 or multiply by 0.0135
+  Serial.print(in);
+  Serial.print("in, ");
+  Serial.print(cm);
+  Serial.print("cm");
+  Serial.println();
+  Serial.print(ble_val);
+  delay(250);
+  
+  if (right_light>600&&in>5){
+    matrix_display(happy);
+    
+    
+  }else if (right_light>600){
+    matrix_display(sad); 
+    
+  }
+  else if (in>5){
+    matrix_display(dark); 
+    
+  }
+  switch (ble_val)
+  { 
+    case 'f':
+      forward();
+      break; 
+  //front
+    case 'b':
+      back();
+      break; 
+   //back
+    case 'l':
+      left();
+      break;
+    //left
+    case 'r':
+      right();
+      break;
+   //right
+    case 's':
+      stop();
+      break;
+    //stop
+    case 'g':
+      auton();
+      break;
+    case 'y':
+      light_tracking();
+      break;
+    case 'c':
+      follow();
+      break;
+
+  }
+    
+}
+```
 # Schematics 
 #### Obstacle Avoidance Schematic
 
