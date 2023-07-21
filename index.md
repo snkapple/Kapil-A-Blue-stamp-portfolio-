@@ -93,7 +93,7 @@ Here's where you'll put your code. The syntax below places it into a block of co
 -->
 # Code
 the code for the Bluetooth controlled bot 
-```c++
+<pre style="background:#fdfdfd; border:none; height:40pc">
 
 #define ML_Ctrl 13  //define the direction control pin of left motor
 #define ML_PWM 11   //define the PWM control pin of left motor
@@ -155,10 +155,9 @@ switch (ble_val)
   }
 
 }
-```
+</pre>
 Obstacle Avoidance Code.
-<pre style="background;#fdfdfd:
-border:none; height;40pc">
+<pre style="background;#fdfdfd: border:none; height;40pc">
 
 #include <Servo.h>
 
@@ -285,7 +284,7 @@ void loop(){
     
 }
 
-  </pre>
+</pre>
 
 Integrated bluetooth code 
 ```C++
