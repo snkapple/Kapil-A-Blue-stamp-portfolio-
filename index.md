@@ -73,7 +73,7 @@ Building the tank involved a few things I first had to assemble the wheel and th
 
 My starter project was the custom Arduino project. I made a thing using Arduino, that when you are at least ten centimeters from the ultrasonic sensor you would turn on an LED. If you were more than ten centimeters away it would turn off.
 
-### components used 
+### Components Used 
 -  an Arduino which is a microcontroller 
 -   an adafruit proto shield on which I could make custom circuits on 
 -    an led which provides light and an output
