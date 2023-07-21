@@ -95,7 +95,7 @@ Here's where you'll put your code. The syntax below places it into a block of co
 
 Integrated bluetooth code 
 
-<pre style="background:#fdfdfd: border:none;height:40pc>
+<pre style="background:#fdfdfd: border:none; height:40pc>
   
 #include <Servo.h>
 
