@@ -8,7 +8,7 @@ I decided to build a mini-tank robot. It can use treads to move, and it also has
 
 
 
-<img src="Kapil-Project.png" width="400" height="500">
+<img src="Kapil-Project.png" width="400" height="500"> <img src="Kapil-Headshot.png" width="400" height="500">
   
 
 # Final Milestone
@@ -86,7 +86,7 @@ all of the components are soldered to the proto shield which is connected to the
    A challenge I faced was getting the circuit right and issues with shorting.
   I first designed the circuit on a breadboard which taught me a lot about how circuits work and Power Rails, but when soldering it the circuit kept shorting. I realized that the board to which I was soldering the components had power rails that were already powered by a 5-volt connection so when I connected them to ground it would short. What I had to do was remake the circuit on a different part of the board which wouldn't already have a five-volt connection. For that, I had to make my own connections between the components because they didn't have power rails. 
 ### Next Steps
-next I plan to work on my intensive project which is the mini tank robot. 
+Next I plan to work on my intensive project which is the mini tank robot. 
 
 
 
