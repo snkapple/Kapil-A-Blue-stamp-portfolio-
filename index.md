@@ -94,7 +94,7 @@ Here's where you'll put your code. The syntax below places it into a block of co
 # Code
 
 Integrated bluetooth code 
-```C++
+<pre style="background:#fdfdfd: border:none;height:40pc>
   
 #include <Servo.h>
 
@@ -418,7 +418,9 @@ void loop(){
   }
     
 }
-```
+</pre>
+
+
 # Schematics 
 #### Obstacle Avoidance Schematic
 
