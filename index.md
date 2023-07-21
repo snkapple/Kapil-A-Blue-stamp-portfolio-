@@ -44,7 +44,7 @@ Next, I plan to add extra functionality with different sensors such as the photo
 ### Summary 
 my first milestone with the mini tank robot was to assemble it and test all the components. I was able to successfully test the ultrasonic sensor, the photoresistors, the servo, and the Bluetooth module
 
-the components that were included in the kits were
+### Components used 
 - two photoresistors that change their resistance based on the light level.
 - an IR sensor, which detects infrared signals.
 - an ultrasonic sensor, which detects how far away an object is
@@ -82,9 +82,8 @@ all of the components are soldered to the proto shield which is connected to the
 ### Challenges Faced 
    A challenge I faced was getting the circuit right and issues with shorting.
   I first designed the circuit on a breadboard which taught me a lot about how circuits work and Power Rails, but when soldering it the circuit kept shorting. I realized that the board to which I was soldering the components had power rails that were already powered by a 5-volt connection so when I connected them to ground it would short. What I had to do was remake the circuit on a different part of the board which wouldn't already have a five-volt connection. For that, I had to make my own connections between the components because they didn't have power rails. 
-
-
-
+### Next Steps
+next I plan to work on my intensive project which is the mini tank robot. 
 <!---
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
