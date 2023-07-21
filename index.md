@@ -91,6 +91,33 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 # Code
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 -->
+
+
+
+
+# Schematics 
+#### Obstacle Avoidance Schematic
+
+
+<img src="avoid diagram.png" width="600" height="400">
+
+
+-via keyestudio
+
+#### Bluetooth-Controlled Robot Schematic
+
+
+<img src="bluetooth diagram.png" width="600" height="400">
+
+
+-via keyestudio
+
+# Bill of Materials
+
+
+| **Part** | **Note** | **Price** | **Link** |
+|:--:|:--:|:--:|:--:|
+| Mini Tank Robot Kit | A kit that includes all the parts to make my project  | $69.99 | <a href= "https://www.amazon.com/KEYESTUDIO-Infrared-Ultrasonic-Obstacle-Avoidance/dp/B07X4W7SZ5/ref=sr_1_2?crid=2VO1G8OX14I5&keywords=mini+tank+robot&qid=1689609634&sprefix=mini+tank+robot%2Caps%2C145&sr=8-2&ufe=app_do%3Aamzn1.fos.006c50ae-5d4c-4777-9bc0-4513d670b6bc"> Mini Tank Robot on Amazon </a> |
 # Code
 
 Integrated bluetooth code 
@@ -420,30 +447,4 @@ void loop(){
     
 }</pre>
 
-
-
-
-# Schematics 
-#### Obstacle Avoidance Schematic
-
-
-<img src="avoid diagram.png" width="600" height="400">
-
-
--via keyestudio
-
-#### Bluetooth-Controlled Robot Schematic
-
-
-<img src="bluetooth diagram.png" width="600" height="400">
-
-
--via keyestudio
-
-# Bill of Materials
-
-
-| **Part** | **Note** | **Price** | **Link** |
-|:--:|:--:|:--:|:--:|
-| Mini Tank Robot Kit | A kit that includes all the parts to make my project  | $69.99 | <a href= "https://www.amazon.com/KEYESTUDIO-Infrared-Ultrasonic-Obstacle-Avoidance/dp/B07X4W7SZ5/ref=sr_1_2?crid=2VO1G8OX14I5&keywords=mini+tank+robot&qid=1689609634&sprefix=mini+tank+robot%2Caps%2C145&sr=8-2&ufe=app_do%3Aamzn1.fos.006c50ae-5d4c-4777-9bc0-4513d670b6bc"> Mini Tank Robot on Amazon </a> |
 
