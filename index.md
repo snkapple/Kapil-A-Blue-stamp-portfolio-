@@ -22,16 +22,16 @@ The biggest challenges were when programming. At first I had the the code execut
 Overall my biggest challenges at BSE have been with my starter when it kept shorting because the ground was connected to the five-volt connection. Another one was with the programming of the obstacle avoidance. 
 The biggest triumphs where when I worked out the issue with it first turning right then left and when I made a bluetooth drive for the tank. 
 ### What I learned 
-in bluestamp I learned the basics of electronics like how to make a circuit on a breadboard. I also learned how to use sensors with an ardiuno, and the basic syntax of C++ and how to use things like cases. In the future I want to deeper into electronics and learn more about circuits and how to make custom parts. I also want to learn more about mechanical engineering specifically how to use CAD to design mechanical systems and be able to make them.
+In bluestamp I learned the basics of electronics like how to make a circuit on a breadboard. I also learned how to use sensors with an ardiuno, and the basic syntax of C++ and how to use things like cases. In the future I want to deeper into electronics and learn more about circuits and how to make custom parts. I also want to learn more about mechanical engineering specifically how to use CAD to design mechanical systems and be able to make them.
 
 # Second Milestone
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aJizkXOvEMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Summary 
-for my second milestone, I wrote code so that I was able to run the robot using Bluetooth. With that code with different inputs, I would match the input and if it was the correct input I would either make the robot go forward backward or turn left or right.  
+For my second milestone, I wrote code so that I was able to run the robot using Bluetooth. With that code with different inputs, I would match the input and if it was the correct input I would either make the robot go forward backward or turn left or right.  
 I didn't use any new components I just programmed the motors to control their speed in direction. because they are dc motors they have two directions, so when programming them if I want it to turn right I have one motor turning normally while the other turns right. 
 ### Progress 
-for my customization, I was able to add functionality with an ultrasonic sensor where it would follow an object. 
+For my customization, I was able to add functionality with an ultrasonic sensor where it would follow an object. 
 ### Challenges faced 
 One challenge I faced was with coding it I didn't really understand the way that the Bluetooth inputs were read so I didn't know how to make it so my robot was controlled. I then figured out I have to save my inputs as a variable then I used those to if I had a certain input it would drive a certain way whether it turned or went forwards or backward. Another challenge with driving it was one of the wheels wouldn't be powered, the reason for this is I was connected to one 9 volt battery which was running low on battery and two wasn't giving enough power so I soldered two of the 9-volt battery clips together so I could use two 9 volt batteries. 
 ### Next steps 
@@ -42,7 +42,7 @@ Next, I plan to add extra functionality with different sensors such as the photo
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kHHo6Isvda4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
 
 ### Summary 
-my first milestone with the mini tank robot was to assemble it and test all the components. I was able to successfully test the ultrasonic sensor, the photoresistors, the servo, and the Bluetooth module
+My first milestone with the mini tank robot was to assemble it and test all the components. I was able to successfully test the ultrasonic sensor, the photoresistors, the servo, and the Bluetooth module
 
 ### Components used 
 - two photoresistors that change their resistance based on the light level.
@@ -73,7 +73,7 @@ Building the tank involved a few things I first had to assemble the wheel and th
 
 My starter project was the custom Arduino project. I made a thing using Arduino, that when you are at least ten centimeters from the ultrasonic sensor you would turn on an LED. If you were more than ten centimeters away it would turn off.
 
-the components I used were 
+### components used 
 -  an Arduino which is a microcontroller 
 -   an adafruit proto shield on which I could make custom circuits on 
 -    an led which provides light and an output
