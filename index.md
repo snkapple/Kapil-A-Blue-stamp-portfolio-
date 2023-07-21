@@ -15,7 +15,7 @@ I decided to build a mini-tank robot. It can use treads to move, and it also has
 <iframe width="560" height="315" src="https://www.youtube.com/embed/T1ZMqzTfkSY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Summary 
-For this milestone, I made it so the tank would be able to avoid objects. It works by the ultrasonic sensor being able to read the distance between itself and whatever is in front of it. If the ultrasonic sensor was 5 inches or closer to an object it would check if the left was clear if so it would turn to the left and go that direction if the left was not clear then it would check the right, if the right was not clear it would backup and turn around and go the opposite direction. Since my previous milestone I added functionality to the servo and I also added functionality to the ultrasonic sensor. 
+For this milestone, I made it so the tank would be able to avoid objects. It works by the ultrasonic sensor being able to read the distance between itself and whatever is in front of it. If the ultrasonic sensor was 5 inches or closer to an object it would check if the left was clear if so it would turn to the left and go that direction if the left was not clear then it would check the right, if the right was not clear it would backup and turn around and go the opposite direction. Since my previous milestone I added functionality to the servo and I also added functionality to the ultrasonic sensor. I also added functionality with bluetooth so that I can manually control the bot but I can also switch modes so I can switch from moving forward to obstacle avoidance and I could also change to object following. 
 
 ### Challenges Faced
 The biggest challenges were when programming. At first I had the the code executing when it would turn away from the obstacle after the the code where it stopped it and the code calculating the distance of the object. because of that it would run both pieces of codes all the time instead of just running them at the the right time because the distance was not updated when going through the loop. The solution was placing that piece of code above the code that stopped the tank, by doing this it would run through the code multiples times for each step and update the value making the code run. 
@@ -156,8 +156,10 @@ switch (ble_val)
 
 }
 ```
-obstacle avoidance code.
-```c++
+Obstacle Avoidance Code.
+<pre style="background;#fdfdfd:
+border:none; height;40pc">
+
 #include <Servo.h>
 
 /*
@@ -283,10 +285,11 @@ void loop(){
     
 }
 
+  </pre>
 
-```
 Integrated bluetooth code 
 ```C++
+  
 #include <Servo.h>
 
 /*
